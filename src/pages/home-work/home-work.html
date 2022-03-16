@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-row>
+      <ion-col col-3 (click)="back()">
+        <p>
+          <Back< /p>
+      </ion-col>
+      <ion-col col-6 text-nowrap text-left>
+        <ion-title text-nowrap text-left>Homework</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <ion-buttons end *ngIf="isStaff">
+          <button ion-button icon-only (click)="addEvent()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="addItem()">
+    <ion-row>
+      <ion-col col-6 *ngIf="Classes">
+        <ion-item>
+          <ion-label stacked>Select Class</ion-label>
+          <ion-select #C [(ngModel)]="class_selected" (ionChange)="onChange(C.value, 'class')"
+            formControlName="class_id">
+            <ion-option *ngFor="let item of Classes" value="{{item.id}}">{{item.title}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 *ngIf="Sections">
+        <ion-item>
+          <ion-label stacked>Select Section</ion-label>
+          <ion-select #C [(ngModel)]="section_selected" (ionChange)="onChange(C.value, 'section')"
+            formControlName="section_id">
+            <ion-option *ngFor="let item of Sections" value="{{item.id}}">{{item.title}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+   
+
+  </form>
+  <div>
+
+    <br>
+    <ion-row no-margin class="calender_header">
+      <ion-col col-4 text-center>
+        <span style="font-size: 24px;" (click)="swipeprev()">
+          << /span>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <span style="font-size: 20px;" (click)="swipeprev()">{{ viewTitle }}</span>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <span style="font-size: 24px;" (click)="swipenext()">></span>
+      </ion-col>
+    </ion-row>
+    <div>
+
+      <calendar [eventSource]="eventSource" [monthviewDisplayEventTemplate]="template"
+        [monthviewInactiveDisplayEventTemplate]="templateInActive" [calendarMode]="calendar.mode"
+        [currentDate]="calendar.currentDate" [noEventsLabel]="calendar.noEventsLabel"
+        (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"
+        [monthviewEventDetailTemplate]="template2" (onTimeSelected)="onTimeSelected($event)" step="30" class="calendar">
+      </calendar>
+    </div>
+
+  </div>
+  <ng-template #template let-view="view" let-row="row" let-col="col">
+    <span style="color:black;">{{view.dates[row*7+col].label}}</span>
+  </ng-template>
+  <ng-template #templateInActive let-view="view" let-row="row" let-col="col">
+    <span style="color:black;">{{view.dates[row*7+col].label}}</span>
+  </ng-template>
+
+  <div class="event_details">
+
+    <ng-template #template2 let-showEventDetail="showEventDetail" let-selectedDate="selectedDate"
+      let-noEventsLabel="noEventsLabel">
+      <ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="false"
+        text-nowrap>
+        <ion-item *ngFor="let event of selectedDate?.events" (click)="onEventSelected(event)" text-nowrap
+          style="padding-left:0px !important;">
+         
+          <span text-nowrap *ngIf="event.allDay" class="monthview-eventdetail-timecolumn">All day</span>
+          <ion-row class="item_custom_style">
+
+            <ion-col col-12 text-nowrap>
+              <h2 text-nowrap class="event-detail subject-title">{{event.title}}</h2>
+              <p text-nowrap class="event-detail event_description_custom">{{event.description}}</p>
+            </ion-col>
+          </ion-row>
+
+        </ion-item>
+        <ion-item *ngIf="selectedDate?.events.length==0">
+          <div class="no-events-label" style="color:red;">{{noEventsLabel}}</div>
+        </ion-item>
+      </ion-list>
+    </ng-template>
+  </div>
+
+</ion-content>

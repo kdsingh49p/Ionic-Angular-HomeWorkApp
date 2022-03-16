@@ -1,0 +1,145 @@
+page-home-work {
+	.assignedHWActive{
+		background: #18c618 !important;
+		
+	}
+	.assignedHWActive p
+	{
+		color: white !important;
+	}
+	.ion-icons-custom-style{
+		font-size:50px;
+		color:#3e51de;
+		margin-bottom:0px;
+		padding-bottom:0px;
+		width:100%;
+		text-align:center;
+	}
+	.backgrond-color-grid{
+		background:yellow;
+	}
+	.icon-text{
+		font-size:12px;
+		width:100%;
+		text-align:center;
+	}
+	.monthview-eventdetail-timecolumn{
+		display:none !important;
+	}
+	//calender design from github issue
+	[_nghost-c0] > div[_ngcontent-c0] {
+        height: 100% !important;
+    }
+
+    .swiper-slide {
+        align-items: unset !important;
+    }
+
+    .table {
+		height: 100% !important;
+		
+    }
+
+    .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+        border-bottom-width: 0 !important;
+    }
+
+    .monthview-datetable th {
+        text-align: center !important;
+        height: 24px !important;
+    }
+	.monthview-primary-with-event span{
+		color: white !important;
+	}
+	
+	.monthview-selected span{
+		color: white !important;
+		background-color:#009900 !important;
+	}
+	.monthview-selected .monthview-current span{
+		color: white !important;
+		background-color:#009900 !important;
+	}
+	.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
+		border:none !important;
+	}
+	.monthview-primary-with-event{
+		border-radius: 50% !important;
+	}
+	.monthview-selected{
+		border-radius: 50% !important;
+		background-color: none !important;
+	}
+	.monthview-selected[_ngcontent-c1]{
+		background-color: none !important;
+	}
+    .monthview-datetable td {
+        text-align: center !important;
+        // height: 50px !important;
+	}
+	.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+		// line-height: 34px !important;
+	}
+	.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+		vertical-align: none !important;
+	}
+	.table-bordered{
+		// border:0px !important;
+	}
+	
+	.calender_header{
+		background: #2C425A;	
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+	}
+	.calender_header span{
+		color:white !important;
+	} 
+	.subject-title{
+	//	background: #dbdadacc;
+	//	padding: 12px !important;
+	//	border: 1px solid grey;
+	}
+	.event_details > .label-md{
+		margin:0px !important;
+	}
+	.event_details > .item{
+		padding-left:0px !important;
+	}
+	.calender_header{
+		height: 76px !important;
+		padding-top:5% !important;
+	}
+	.calender_header > .col{
+		//margin-top:50% !important;
+	}
+	.item{
+		border-bottom:none !important;
+
+	}
+	.list-ios .item-block .item-inner{
+		border-bottom:none !important;
+	}
+	.list-md .item-block .item-inner{
+		border-bottom:none !important;
+	}
+	.list{
+		margin-top:8% !important;
+	}
+	.item_custom_style{
+		border:1px solid #EEEEEE !important;
+		padding: 2% 0% !important;
+		border-left:7px solid #65c164 !important;
+	}
+	.item_custom_style > .label{
+	margin:0px !important;
+	}
+	.label{
+	margin:0px !important;
+	}
+	.event_description_custom{
+		word-wrap: break-word !important;
+		text-overflow: unset !important;
+		white-space: normal !important;
+	}
+}

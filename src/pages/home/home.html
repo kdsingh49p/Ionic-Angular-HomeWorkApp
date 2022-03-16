@@ -1,0 +1,138 @@
+<ion-header>
+
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>HomeWork App</ion-title>
+		<button ion-button menuToggle end>
+			<ion-icon name="contact"></ion-icon>
+		</button>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12>
+				<ion-card>
+
+					<ion-card-header>
+						<span style="text-align: left;">
+							<ion-icon name="notifications"></ion-icon>
+							Notice
+						</span>
+						<span (click)="opennotications()" style="text-align: right;float: right;color: #7b7777;">
+							See All
+						</span>
+					</ion-card-header>
+
+					<ion-card-content>
+						<div *ngIf="notice" class="notifications-con">
+							<div *ngFor="let item of this.notice" margin-bottom margin-top
+								style="border-bottom: 1px solid #F7F7F7;">
+								<h2 class='notice_heading'>{{item.title}}</h2>
+								<p class='notice_sub_heading'>{{item.description}}</p>
+
+							</div>
+						</div>
+						<span *ngIf="!notice" style="color:red;">
+							No Notice
+						</span>
+
+					</ion-card-content>
+
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-grid>
+		<ion-row *ngIf="isStaff">
+			<ion-col col-6 class="backgrond-color-grid tile-margin" text-center (click)="studentMaster()">
+				<ion-icon class="ion-icons-custom-style color_pink" name="contacts">
+				</ion-icon>
+				<label class="icon-text">Student</label><br>
+				<small class="icon-sub-text">
+					<span *ngIf="stats.students">{{stats.students}}</span>
+					<span *ngIf="!stats.students">{{stats.students}}</span> students</small>
+			</ion-col>
+			<ion-col col-6 class="backgrond-color-grid tile-margin" text-center (click)="classMaster()">
+				<ion-icon class="ion-icons-custom-style color_blue" name="logo-buffer">
+				</ion-icon>
+				<label class="icon-text">Class</label>
+				<br>
+				<small class="icon-sub-text">
+					<span *ngIf="stats.classes">{{stats.classes}}</span><span
+						*ngIf="!stats.classes">{{stats.classes}}</span> Classes</small>
+			</ion-col>
+
+		</ion-row>
+		<ion-row *ngIf="isStaff">
+			<ion-col col-6 class="backgrond-color-grid tile-margin" text-center (click)="subjectmaster()">
+				<ion-icon class="ion-icons-custom-style color_skyblue" name="book">
+				</ion-icon>
+				<label class="icon-text">Subject</label>
+				<br>
+				<small class="icon-sub-text">
+					<span *ngIf="stats.subjects">{{stats.subjects}}</span>
+					<span *ngIf="!stats.subjects">{{stats.subjects}}</span> Subjects</small>
+			</ion-col>
+			<ion-col col-6 class="backgrond-color-grid tile-margin" text-center (click)="usermaster()">
+				<ion-icon class="ion-icons-custom-style color_orange" name="person-add">
+				</ion-icon>
+				<label class="icon-text">Staff List</label>
+				<br>
+				<small class="icon-sub-text">
+					<span *ngIf="stats.staff">{{stats.staff}}</span>
+					<span *ngIf="!stats.staff">{{stats.staff}}</span> Staff</small>
+			</ion-col>
+
+			<!-- <ion-col (click)="openCommunication()" class="backgrond-color-grid tile-margin" text-center>
+	      <ion-icon class="ion-icons-custom-style"  name="chatbubbles">
+	  	</ion-icon>
+	  	<label class="icon-text">Communication</label>
+
+	    </ion-col> -->
+
+		</ion-row>
+		<ion-row>
+			<ion-col col-6 class="backgrond-color-grid tile-margin" text-center (click)="openHomeWork()">
+				<ion-icon class="ion-icons-custom-style color_green" name="paper">
+				</ion-icon>
+				<label class="icon-text">HomeWork</label>
+				<br>
+				<small class="icon-sub-text">
+					<span *ngIf="stats.homework">{{stats.homework}}</span>
+					<span *ngIf="!stats.homework">{{stats.homework}}</span> total</small>
+			</ion-col>
+			<ion-col col-6 class="backgrond-color-grid tile-margin" text-center>
+				<ion-icon class="ion-icons-custom-style " name="paper">
+				</ion-icon>
+				<label class="icon-text">Info</label>
+				<br>
+				<small class="icon-sub-text">About School</small>
+			</ion-col>
+
+		</ion-row>
+
+		<ion-row>
+			<ion-col (click)="gallery()" col-6 class="backgrond-color-grid tile-margin" text-center>
+				<ion-icon class="ion-icons-custom-style color_grey" name="images">
+				</ion-icon>
+				<label class="icon-text">Gallery</label>
+				<br>
+				<small class="icon-sub-text">School Events</small>
+			</ion-col>
+			<ion-col col-6 class="backgrond-color-grid tile-margin" text-center>
+				<ion-icon class="ion-icons-custom-style color_grey" name="help-circle">
+				</ion-icon>
+				<label class="icon-text">Help</label>
+				<br>
+				<small class="icon-sub-text">Contacts</small>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,62 @@
+<!--
+  Generated template for the SubjectMasterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>{{this.ActiveSegment}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="addItem()">
+      <ion-row *ngIf="this.ActiveSegment=='AssignSubject'">
+        <ion-col col-6 *ngIf="Classes">
+          <ion-item>
+            <ion-label stacked>Select Class</ion-label>
+            <ion-select formControlName="class_id" multiple="true">
+              <ion-option *ngFor="let item of Classes" value="{{item.id}}">{{item.title}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6 *ngIf="Subjects">
+          <ion-item>
+            <ion-label stacked>Select Subject</ion-label>
+            <ion-select formControlName="subject_id">
+              <ion-option *ngFor="let item of Subjects" value="{{item.id}}">{{item.title}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-9>
+        </ion-col>
+        <ion-col col-3>
+          <button style="margin:1.2rem 0rem 0.4rem 1.6rem !important;" ion-button>Save</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of apiData" class="item_custom_style">
+      <button ion-item (click)="editItem(item)">
+        <h2 *ngIf="item.class">{{item.class}}</h2>
+        <ion-note item-end *ngIf="item.subject" style="font-size:small;">{{item.subject.title}}</ion-note>
+      </button>
+
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

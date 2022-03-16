@@ -1,0 +1,78 @@
+page-home {
+	ion-content{
+		background:#f7f7f7 !important;
+	}
+	.ion-icons-custom-style{
+		font-size:50px;
+		color:#3e51de;
+		margin-bottom:0px;
+		padding: 3% 0 !important;
+		width:100%;
+		text-align:center;
+	}
+	.backgrond-color-grid{
+		background:white;
+		border: 1px solid #eae8e8;
+		height: 100%;
+	}
+	.tile-margin{
+		margin:0% !important;
+		width: 20% !important;
+		padding: 4% 0 !important;
+	}
+	.icon-text{
+		font-size:16px;
+		width:100%;
+		text-align:center;
+		padding: 4% 0 !important;
+	}
+	.icon-sub-text{
+		font-size:12px;
+		width:100%;
+		color:#A3A1A2 !important;
+		text-align:center;
+		padding: 4% 0 !important;
+	}
+	.notifications-con{
+		max-height: 50px !important;
+		overflow: scroll;	
+	}
+	.card {
+		margin:0px !important;
+		width:100% !important;
+		border: 1px solid #F7F7F7;
+		-webkit-box-shadow: none !important;
+    	box-shadow: none !important;
+    	//background: #824499 !important;
+	}
+	.card-header{
+		border-bottom: 1px solid #eae8e8;
+		//color:white !important;
+	}
+	.notice_heading{
+		font-size:18px !important;
+		color:black !important;
+	}
+	.notice_sub_heading{
+		font-size:12px !important;
+		color:grey !important;
+	}
+	.color_pink{
+		color:#be65c1 !important;
+	}
+	.color_blue{
+		color:#6574c1 !important;
+	}
+	.color_skyblue{
+		color:#64c1be !important;
+	}
+	.color_green{
+		color:#65c164 !important;
+	}
+	.color_orange{
+		color:#ea6a1b !important;
+	}
+	.color_grey{
+		color:#bdbdbd !important;
+	}
+}

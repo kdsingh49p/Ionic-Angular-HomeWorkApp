@@ -1,0 +1,85 @@
+<!--
+  Generated template for the EditFormMasterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>EditFormMaster</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="editItem()" *ngIf="todo.previous_page=='AssignSubjectPage'">
+
+    <ion-item *ngIf="Classes">
+      <ion-label>Select Class</ion-label>
+      <ion-select [(ngModel)]="todo.class_array" name="class_array" multiple="true">
+        <ion-option *ngFor="let item of Classes" value="{{item.id}}">
+          {{item.title}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="Subjects">
+      <ion-label>Select Subject</ion-label>
+      <ion-select [(ngModel)]="todo.subject_id" name="subject_id">
+        <ion-option *ngFor="let item of Subjects" value="{{item.id}}">{{item.title}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <button ion-button type="submit" block>Update</button>
+  </form>
+
+  <form (ngSubmit)="editStudent()" *ngIf="student.previous_page=='StudentMasterPage'">
+    <ion-list>
+      <ion-item *ngIf="Classes">
+        <ion-label>Select Class</ion-label>
+        <ion-select [(ngModel)]="student.class_id" name="class_id">
+          <ion-option *ngFor="let item of Classes" value="{{item.id}}">{{item.title}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="Sections">
+        <ion-label>Select Section</ion-label>
+        <ion-select [(ngModel)]="student.section_id" name="section_id">
+          <ion-option *ngFor="let item of Sections" value="{{item.id}}">{{item.title}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="student_name" placeholder="Student Name" [(ngModel)]="student.student_name">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="mother_name" placeholder="Mother Name" [(ngModel)]="student.mother_name">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="generic_password" placeholder="generic_password"
+          [(ngModel)]="student.generic_password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" name="date_of_birth" pickerFormat="MM/DD/YYYY"
+          [(ngModel)]="student.date_of_birth"></ion-datetime>
+
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" placeholder="Contact Phone" name="contact_phone" [(ngModel)]="student.contact_phone">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="contact_email" placeholder="Contact Email" [(ngModel)]="student.contact_email">
+        </ion-input>
+      </ion-item>
+
+
+    </ion-list>
+    <button ion-button type="submit" block>Update</button>
+  </form>
+</ion-content>

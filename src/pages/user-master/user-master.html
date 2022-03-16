@@ -1,0 +1,38 @@
+<!--
+  Generated template for the SubjectMasterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+  <ion-navbar>
+    <ion-title>{{this.ActiveSegment}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToCreate()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+    <ion-item-sliding *ngFor="let item of searchitemsfilter | slice:0:10" class="item_custom_style">
+      <button ion-item (click)="openItem(item)">
+        <h2>{{item.name}}</h2>
+        <ion-note item-end *ngIf="item.email"><small>{{item.email}}</small></ion-note>
+      </button>
+
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+

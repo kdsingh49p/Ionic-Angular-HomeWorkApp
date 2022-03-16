@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Communication List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-segment color="primary" [(ngModel)]="ActiveSegment">
+    <ion-segment-button value="StudentList" (click)="openTab()">
+      Students
+    </ion-segment-button>
+    <ion-segment-button value="ClassList" (click)="openTab()">
+      Class
+    </ion-segment-button>
+    <ion-segment-button value="StaffList" (click)="openTab()">
+      Staff
+    </ion-segment-button>
+  </ion-segment>
+  <ion-list>
+    <ion-item *ngFor="let item of apiData">
+      <div *ngIf="ActiveSegment=='StudentList'">
+        <button ion-item (click)="SendToStudent(item)">
+          <h2>{{item.student_name}}</h2>
+        </button>
+      </div>
+
+      <div *ngIf="ActiveSegment=='ClassList'">
+        <button ion-item (click)="SendToClass(item)">
+          <h2>{{item.title}}</h2>
+        </button>
+      </div>
+
+      <div *ngIf="ActiveSegment=='StaffList'">
+        <button ion-item (click)="SendToStudent(item)">
+          <h2>{{item.username}}</h2>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
