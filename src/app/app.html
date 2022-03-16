@@ -1,0 +1,28 @@
+<ion-menu [content]="content">
+        <ion-content>
+            <ion-row style="background-image: url('assets/img/bg-login.jpg') !important;    background-size: cover !important; ">
+              <ion-col col-3 style="margin-left:5%;">
+                <img src="assets/img/sarah-avatar.jpeg" alt="" style="margin-top: 49%;
+    border-radius: 50%;">
+              </ion-col>
+
+              <ion-col col-8>
+                <span *ngIf="user" margin class="user_txt">
+                    <h6 style="color:white;"> {{user.username}}</h6>
+                    <h6 style="color:white;">{{user.email}}</h6>
+                    <h6 style="color:white;"> {{user.mobile}}</h6>
+            </span>
+              </ion-col>
+            </ion-row>
+            
+
+          <ion-list>
+            <button menuClose ion-item (click)="logout()">
+              <ion-icon style="margin-right: 5%; color:#565656;" ios="ios-log-out" md="md-log-out"></ion-icon>
+              Logout
+            </button>
+          </ion-list>
+        </ion-content>
+    
+      </ion-menu>
+      <ion-nav #content [root]="rootPage"></ion-nav>
